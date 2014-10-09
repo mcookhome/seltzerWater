@@ -1,0 +1,8 @@
+<head>
+  <link rel="shortcut icon" href="/static/icon.ico" />
+</head>
+
+<h1> {{answer}} </h1>
+{% for result in common %}
+  <li>{{result}} </li>
+{% endfor %}

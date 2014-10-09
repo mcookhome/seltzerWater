@@ -67,8 +67,24 @@ def results():
     print "im out"
     toParse = unicodedata.normalize('NFKD',toParse).encode('ascii','ignore')
     L =findnames(toParse)
-    
-    return render_template("results.html", L =L[:20])    
+    s=""
+    for x in xrange(len(L)):
+        for y in L[x]:
+            s+= y + " "
+        L[x] = s[1:-1]
+        s=""
+        
+    #testing
+    c= Counter(L)
+    answer = c.most_common(20)
+    common = []
+    for x in answer:
+        string, count = x
+        #print string
+        common.append(string)
+        #print common
+    #testing
+    return render_template("results.html", L =L,common=common)    
     
 if __name__=="__main__":
     app.debug=True
