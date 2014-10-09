@@ -1,1 +1,9 @@
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+
 <h1> Holla seltzer water </h1>
+
+<form class = "pure-form" method = "POST">
+<input type="text" placeholder="search" id = "bar"name= "bar">
+<a class = "pure-button" href = "/results" type = "submit" > Submit </a>
+</form>
+</body>

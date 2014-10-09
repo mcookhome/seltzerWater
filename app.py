@@ -18,11 +18,10 @@ def home():
 @app.route("/results",methods= ["GET", "POST"])
 def results():
     L=[]
-    string = None
+    query = ""
     if request.method == 'POST':
-        if string == None:
-            string = request.form['bar']
-    for url in search (string, stop=10):
+        query=request.form['query']
+    for url in search (query, stop=10):
         L.append(url)
     return render_template("results.html", L =L)    
     
