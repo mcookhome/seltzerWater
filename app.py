@@ -62,13 +62,13 @@ def results():
         f.close()
         toParse += soup.getText()
         i=i+1
-        if i>5:
+        if i>4:
             break
     print "im out"
     toParse = unicodedata.normalize('NFKD',toParse).encode('ascii','ignore')
     L =findnames(toParse)
     
-    return render_template("results.html", L =L[:9])    
+    return render_template("results.html", L =L[:20])    
     
 if __name__=="__main__":
     app.debug=True
