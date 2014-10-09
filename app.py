@@ -3,7 +3,7 @@ from google import search
 import urllib,pickle,re
 from bs4 import BeautifulSoup
 from collections import Counter
-import operator
+import operator,unicodedata
 # this makes app an instance of the Flask class
 # and it passed the special variable __name__ into
 # the constructor
@@ -54,10 +54,18 @@ def results():
     toParse=""
     if request.method == 'POST':
         query=request.form['query']
-    for url in search (query, stop=3):
+    i=0
+    for url in search(query, stop=5):
+        print "hello is this alive"
         f=urllib.urlopen(url)
         soup = BeautifulSoup(f.read())
+        f.close()
         toParse += soup.getText()
+        i=i+1
+        if i>5:
+            break
+    print "im out"
+    toParse = unicodedata.normalize('NFKD',toParse).encode('ascii','ignore')
     L =findnames(toParse)
     
     return render_template("results.html", L =L[:9])    
