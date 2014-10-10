@@ -39,11 +39,13 @@ def findnames(g):
     return L  
 
 def finddates(g):
-    r = re.compile('^((((0[13578])|([13578])|(1[02]))[\/](([1-9])|([0-2][0-9])|(3[01])))|(((0[469])|([469])|(11))[\/](([1-9])|([0-2][0-9])|(30)))|((2|02)[\/](([1-9])|([0-2][0-9]))))[\/]\d{4}$|^\d{4}$')
+    #r = re.compile('^((((0[13578])|([13578])|(1[02]))[\/](([1-9])|([0-2][0-9])|(3[01])))|(((0[469])|([469])|(11))[\/](([1-9])|([0-2][0-9])|(30)))|((2|02)[\/](([1-9])|([0-2][0-9]))))[\/]\d{4}$|^\d{4}$')
+    r = re.compile('(?:[A-Z][a-z].\.)* (?:[A-Z][a-z]+)(?:\s[A-Z][a-z]+)+')
     M=r.findall(g)
     y=0
+    print M
     for i in xrange(len(M)):
-        M[i] = M[i].replace('\n',' ')
+        M[i] = M[i].replace('\n','')
     return M 
 
 
@@ -112,11 +114,13 @@ def when():
         if i>4:
             break
     print "im out"
+
     toParse = unicodedata.normalize('NFKD',toParse).encode('ascii','ignore')
     M =finddates(toParse)
+    print M
     s=""
     for x in xrange(len(M)):
-        for y in L[x]:
+        for y in M[x]:
             s+= y + " "
         M[x] = s[1:-1]
         s=""
