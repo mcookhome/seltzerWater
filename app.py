@@ -38,6 +38,14 @@ def findnames(g):
     L[:] = [ o for o in L if notname(o)==False]
     return L  
 
+def finddates(g):
+    r = re.compile('^((((0[13578])|([13578])|(1[02]))[\/](([1-9])|([0-2][0-9])|(3[01])))|(((0[469])|([469])|(11))[\/](([1-9])|([0-2][0-9])|(30)))|((2|02)[\/](([1-9])|([0-2][0-9]))))[\/]\d{4}$|^\d{4}$')
+    M=r.findall(g)
+    y=0
+    for i in xrange(len(M)):
+        M[i] = M[i].replace('\n',' ')
+    return M 
+
 
 
 @app.route("/home", methods= ["GET", "POST"])
@@ -47,8 +55,8 @@ def home():
     
     
 
-@app.route("/results",methods= ["GET", "POST"])
-def results():
+@app.route("/who",methods= ["GET", "POST"])
+def who():
     
     query = ""
     toParse=""
@@ -84,7 +92,46 @@ def results():
         common.append(string)
         #print common
     #testing
-    return render_template("results.html", L =L,common=common)    
+    return render_template("who.html", L =L,common=common)  
+
+@app.route("/when",methods= ["GET", "POST"])
+def when():
+    
+    query = ""
+    toParse=""
+    if request.method == 'POST':
+        query=request.form['query']
+    i=0
+    for url in search(query, stop=5):
+        print "hello is this alive"
+        f=urllib.urlopen(url)
+        soup = BeautifulSoup(f.read())
+        f.close()
+        toParse += soup.getText()
+        i=i+1
+        if i>4:
+            break
+    print "im out"
+    toParse = unicodedata.normalize('NFKD',toParse).encode('ascii','ignore')
+    M =finddates(toParse)
+    s=""
+    for x in xrange(len(M)):
+        for y in L[x]:
+            s+= y + " "
+        M[x] = s[1:-1]
+        s=""
+        
+    #testing
+    c= Counter(M)
+    answer = c.most_common(20)
+    common = []
+    for x in answer:
+        string, count = x
+        #print string
+        common.append(string)
+        #print common
+    #testing
+    return render_template("when.html", M =M,common=common)    
     
 if __name__=="__main__":
     app.debug=True

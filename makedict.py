@@ -15,8 +15,6 @@ def makedict():
     
     return words
 
-
-
 wr = open('diction.txt', 'wb')
 d= makedict()
 pickle.dump(d,wr)

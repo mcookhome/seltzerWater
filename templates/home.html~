@@ -1,9 +1,24 @@
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+<head>
+<link rel="shortcut icon" href="/static/icon.ico">
 
-<h1> Holla seltzer water </h1>
+<style>
+body{
+	width:270px;
+	height:150px;
+	position:absolute;
+	left:50%;
+	top:50%;
+	margin:-75px 0 0 -135px;
+}
+</style>
+</head>
+<body><link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+<center>
+<h1>Whogle </h1>
 
-<form class = "pure-form" method = "POST">
-<input type="text" placeholder="search" id = "bar"name= "bar">
-<a class = "pure-button" href = "/results" type = "submit" > Submit </a>
+<form name="input" class="pure-form" action="/results" method="POST">
+ <input type="text" class="pure-input-rounded" name="query" placeholder="Who">
+<input type="submit" value="Submit" class="pure-button pure-button-primary">
 </form>
+</center>
 </body>

@@ -3,12 +3,14 @@
 
 <style>
 body{
+        wWidth  = $window.width();
+        wHeight = $window.height();
 	width:270px;
 	height:150px;
-	position:absolute;
-	left:50%;
-	top:50%;
-	margin:-75px 0 0 -135px;
+	position:relative;
+	left:40%;
+	top:20%;
+	margin:-70px 0 0 -135px;
 }
 </style>
 </head>
@@ -16,9 +18,18 @@ body{
 <center>
 <h1>Whogle </h1>
 
-<form name="input" class="pure-form" action="/results" method="POST">
+<form name="input" class="pure-form" action="/who" method="POST">
  <input type="text" class="pure-input-rounded" name="query" placeholder="Who">
 <input type="submit" value="Submit" class="pure-button pure-button-primary">
 </form>
 </center>
+
+<center>
+<h1>Whengle </h1>
+<form name="input" class="pure-form" action="/when" method="POST">
+ <input type="text" class="pure-input-rounded" name="query" placeholder="When">
+<input type="submit" value="Submit" class="pure-button pure-button-primary">
+</form>
+</center>
+
 </body>

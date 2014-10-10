@@ -80,9 +80,9 @@ def results():
     common = []
     for x in answer:
         string, count = x
-        print string
+        #print string
         common.append(string)
-        print common
+        #print common
     #testing
     return render_template("results.html", L =L,common=common)    
     
