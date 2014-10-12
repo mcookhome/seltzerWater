@@ -1,7 +1,7 @@
 import pickle
 
 def makedict():
-    s= "!#ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    s= "!ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     words = []
     for n in s:
         t = open("dict/" + n + " Words.csv")
