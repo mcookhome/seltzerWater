@@ -27,7 +27,7 @@ Should render something like this message:
  * Restarting with reloader
 ```
 
-3.Open the URL in your favorite browser and 
+3.Open the URL in your favorite browser and happy searching!
 
 
 
