@@ -1,5 +1,5 @@
 <h1> Whoogle & Whengle </h1>
-by Brian and Matt 
+by Deanna Talor, Benedict Bolton, Matthew Cook, and Eric Morgenstern
 
 <h2>How to use:</h2> 
 
