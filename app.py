@@ -92,7 +92,8 @@ def findnames(g):
 
 def finddates(g):
     #r = re.compile('^((((0[13578])|([13578])|(1[02]))[\/](([1-9])|([0-2][0-9])|(3[01])))|(((0[469])|([469])|(11))[\/](([1-9])|([0-2][0-9])|(30)))|((2|02)[\/](([1-9])|([0-2][0-9]))))[\/]\d{4}$|^\d{4}$')
-    r = re.compile('(?:[A-Z][a-z].\.)* (?:[A-Z][a-z]+)(?:\s[A-Z][a-z]+)+')
+    #r = re.compile('(?:^(?:19|20)\d\d[- /.](?:0[1-9]|1[012])[- /.](?:0[1-9]|[12][0-9]|3[01])$)|(?:^(?:0[1-9]|1[012])[- /.](?:0[1-9]|[12][0-9]|3[01])(?:(?:19|20)\d\d[- /.])$)')
+    r = re.compile('[A-Z][a-z]+[\.]*\s[123]*[0-9],*\s\s*[1-9][0-9]+')
     M=r.findall(g)
     y=0
     print M
@@ -148,8 +149,6 @@ def who():
             s+= y + " "
         L[x] = s[1:-1]
         s=""
-        
-    #testing
     c= Counter(L)
     answer = c.most_common(20)
     common = []
@@ -160,41 +159,48 @@ def who():
         #print common
     while common[0] in query:
       common.remove(common[0])
-    #testing
     return render_template("who.html", L =L,common=common)  
 
 @app.route("/when",methods= ["GET", "POST"])
 def when():
-    
     query = ""
     toParse=""
     if request.method == 'POST':
         query=request.form['query']
     i=0
     for url in search(query, stop=5):
-        print url
-
+        print "hello is this alive"
         f=urllib2.urlopen(url)
-        soup = BeautifulSoup(f.read())
-        f.close()
-        toParse += soup.getText()
-        i=i+1
+        t = Ticker(2)
+        t.start()
+        try: 
+          while t.evt.wait():
+            lines = f.read()
+            print "f"
+            soup = BeautifulSoup(lines )
+            f.close()
+            toParse += soup.getText()
+            i=i+1
+            t.stop()
+            t.join()
+        except:
+          t.stop()
+          t.join()
+          print "too long :("
         if i>4:
-            break
+          break
     print "im out"
-
     toParse = unicodedata.normalize('NFKD',toParse).encode('ascii','ignore')
-    M =finddates(toParse)
-    print M
+    L =finddates(toParse)
+    print L
     s=""
-    for x in xrange(len(M)):
-        for y in M[x]:
+    for x in xrange(len(L)):
+        for y in L[x]:
             s+= y + " "
-        M[x] = s[1:-1]
         s=""
-        
-    #testing
-    c= Counter(M)
+      
+  
+    c= Counter(L)
     answer = c.most_common(20)
     common = []
     for x in answer:
@@ -202,8 +208,11 @@ def when():
         #print string
         common.append(string)
         #print common
-    #testing
-    return render_template("when.html", M =M,common=common)    
+    while common[0] in query:
+      common.remove(common[0])
+      
+
+    return render_template("when.html", L=L,common=common)    
     
 if __name__=="__main__":
     app.debug=True
