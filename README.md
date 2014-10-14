@@ -21,7 +21,7 @@ Run the makedict.py script in order to restore the diction.txt to its original l
 Should render something like this message:
 <br>
 ```
- * Running on someurl
+ * Running on someurl<br>
  * Restarting with reloader
 ```
 <br>
