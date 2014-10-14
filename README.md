@@ -15,13 +15,13 @@ Run the makedict.py script in order to restore the diction.txt to its original l
 <li> Run app.py
 <br> 
 ```
-    python findnames.py testtext
+    python app.py
 ```
 <br>
 Should render something like this message:
 <br>
 ```
- * Running on <url>
+ * Running on someurl
  * Restarting with reloader
 ```
 <br>
