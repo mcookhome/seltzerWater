@@ -92,7 +92,8 @@ def findnames(g):
 
 def finddates(g):
     #r = re.compile('^((((0[13578])|([13578])|(1[02]))[\/](([1-9])|([0-2][0-9])|(3[01])))|(((0[469])|([469])|(11))[\/](([1-9])|([0-2][0-9])|(30)))|((2|02)[\/](([1-9])|([0-2][0-9]))))[\/]\d{4}$|^\d{4}$')
-    r = re.compile('(?:(?:\d+-)+)*(?:(?:\d+\.)+)*(?:(?:\d+/)+)*')
+    #r = re.compile('(?:^(?:19|20)\d\d[- /.](?:0[1-9]|1[012])[- /.](?:0[1-9]|[12][0-9]|3[01])$)|(?:^(?:0[1-9]|1[012])[- /.](?:0[1-9]|[12][0-9]|3[01])(?:(?:19|20)\d\d[- /.])$)')
+    r = re.compile('[A-Z][a-z]+[\.]*\s[123]*[0-9],*\s\s*[1-9][0-9]+')
     M=r.findall(g)
     y=0
     print M
@@ -211,7 +212,7 @@ def when():
       common.remove(common[0])
       
 
-    return render_template("when.html", M =M,common=common)    
+    return render_template("when.html", L=L,common=common)    
     
 if __name__=="__main__":
     app.debug=True
