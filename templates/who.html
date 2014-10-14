@@ -9,28 +9,41 @@
         margin-left: auto;
         margin-right: auto;
         width: 500px
-        background: #D3D3D3;
-        color: black;
+        background: #3F3F3F;
+    }
+    body{
+      background-color: #343434;
     }
     .title{
-      .title{
-      color: #343434;
+      color: rgb(28, 184, 65);
       font-weight: normal;
-      font-family: 'Rockwell', serif
+      font-family: 'Garamond', serif;
       font-size:30px;
       line-height: 32px;
       text-shadow: 0 2px white, 0 3px #777;
     }
+    .content{
+      color: white;
+      font-weight: normal;
+      font-family: 'Century Gothic', sans-serif;
+      font-size:18px;
+      line-height: 20px;
+    }
   </style>
 </head>
-
-<div class="title">
+<body>
 <center>
-<h1>     The answer is...   </h1>
-</center>
-</div>
-
 <section>
+<div class="title">
+  <br><br>
+<h1>     The answer is...   </h1>
+</div>
+<div class="content">
+  <b>
 <h1> {{answer}} </h1>
 {{common[0]}}
+</b>
+</div>
 </section>
+</center>
+</body>

@@ -11,24 +11,38 @@
         background: #D3D3D3;
         color: black;
     }
+    body {
+      background-color:#343434;
+    }
     .title{
       color: rgb(28, 184, 65);
       font-weight: normal;
-      font-family: 'Garamond', serif
+      font-family: 'Garamond', serif;
       font-size:30px;
       line-height: 32px;
       text-shadow: 0 2px white, 0 3px #777;
+    }
+    .content{
+      color: white;
+      font-weight: normal;
+      font-family: 'Century Gothic', sans-serif;
+      font-size:18px;
+      line-height: 20px;
     }
   </style>
 </head>
 
 <center>
+<section>
 <div class="title">
+  <br><br>
 <h1>     The answer is...   </h1>
 </div>
-
-<section>
+<div class="content">
+  <b>
 <h1> {{common[:10]}} </h1>
 {{common[0]}}
+</b>
+</div>
 </section>
 </center>
