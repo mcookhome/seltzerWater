@@ -3,16 +3,16 @@ by Deanna Talor, Benedict Bolton, Matthew Cook, and Eric Morgenstern
 
 <h2>How to use:</h2> 
 
-<ol> 
-<li>
-Run the makedict.py script in order to restore the diction.txt to its original line endings. 
-</li>
+ 
+<br>
+1.Run the makedict.py script in order to restore the diction.txt to its original line endings. 
+
 
 ```
     python makedict.py
 ```
 
-<li> Run app.py
+<br> 2.Run app.py
 <br> 
 
 ```
@@ -27,9 +27,9 @@ Should render something like this message:
  * Restarting with reloader
 ```
 <br>
-</li>
-<li>
-Open the URL in your favorite browser and 
-</li>
-</ol>
+
+
+3.Open the URL in your favorite browser and 
+
+
 
