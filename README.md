@@ -8,19 +8,24 @@ by Brian and Matt
 Run the makedict.py script in order to restore the diction.txt to its original line endings. 
 </li>
 <br>
+
 ```
     python makedict.py
 ```
+
 <li> Run app.py
 <br> <br>
 ```
     python findnames.py testtext
 ```
+<br>
 Should render something like thisthis message:
+<br>
 ```
  * Running on <url>
  * Restarting with reloader
 ```
+<br>
 </li>
 <li>
 Open the URL in your favorite browser and 
