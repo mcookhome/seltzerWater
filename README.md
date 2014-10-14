@@ -7,7 +7,6 @@ by Brian and Matt
 <li>
 Run the makedict.py script in order to restore the diction.txt to its original line endings. 
 </li>
-<br>
 
 ```
     python makedict.py
@@ -19,7 +18,7 @@ Run the makedict.py script in order to restore the diction.txt to its original l
     python findnames.py testtext
 ```
 <br>
-Should render something like thisthis message:
+Should render something like this message:
 <br>
 ```
  * Running on <url>
