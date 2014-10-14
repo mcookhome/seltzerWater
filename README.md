@@ -8,7 +8,7 @@ by Deanna Talor, Benedict Bolton, Matthew Cook, and Eric Morgenstern
 Run the makedict.py script in order to restore the diction.txt to its original line endings. 
 </li>
 
-```python
+```
     python makedict.py
 ```
 
