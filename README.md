@@ -14,7 +14,7 @@ Run the makedict.py script in order to restore the diction.txt to its original l
 ```
 
 <li> Run app.py
-<br> <br>
+<br> 
 ```
     python findnames.py testtext
 ```
